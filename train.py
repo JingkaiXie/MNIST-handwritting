@@ -7,12 +7,6 @@ from torch.autograd import Variable
 import torch.nn.functional as F
 import torch.utils.tensorboard as tb
 
-mnist_train = datasets.MNIST(root='/data', train=True, download=True,
-                             transform=transforms.Compose([transforms.ToTensor()]))
-data_test = DataLoader(mnist_train, batch_size=128, shuffle=True, num_workers=0)
-
-
-
 def visualize(data):
     fig = plt.figure(figsize=(20, 10))
     for i in range(1, 10):
@@ -26,11 +20,9 @@ def visualize(data):
 if __name__ == '__main__':
     mnist_train = datasets.MNIST(root='/data', train=True, download=True,
                                  transform=transforms.Compose([transforms.ToTensor()]))
-    mnist_test = datasets.MNIST(root='/data', train=True, download=False,
-                                transform=transforms.Compose([transforms.ToTensor()]))
+
     data_train = DataLoader(mnist_train, batch_size=256, shuffle=True, num_workers=0)
 
-    data_valid = DataLoader(mnist_test, batch_size=10, shuffle=True, num_workers=0)
 
     # visualize(mnist_test)
 
