@@ -9,11 +9,8 @@ import torch.utils.tensorboard as tb
 
 mnist_train = datasets.MNIST(root='/data', train=True, download=True,
                              transform=transforms.Compose([transforms.ToTensor()]))
-mnist_test = datasets.MNIST(root='/data', train=True, download=False,
-                            transform=transforms.Compose([transforms.ToTensor()]))
 data_test = DataLoader(mnist_train, batch_size=128, shuffle=True, num_workers=0)
 
-data_valid = DataLoader(mnist_test, batch_size=128, shuffle=True, num_workers=0)
 
 
 def visualize(data):
